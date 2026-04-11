@@ -1,124 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Travel Highlights 2026</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #0f172a;
-            color: #fff;
-        }
-        header {
-            text-align: center;
-            padding: 30px;
-            background: #020617;
-            font-size: 32px;
-            font-weight: bold;
-        }
-        .container {
-            padding: 30px;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .section h2 {
-            color: #38bdf8;
-            margin-bottom: 15px;
-        }
-        .card {
-            background: #1e293b;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            transition: 0.3s;
-        }
-        .card:hover {
-            background: #334155;
-            transform: scale(1.02);
-        }
-        .title {
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #facc15;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Travel - Mohammed</title>
+
+<style>
+body {
+    margin: 0;
+    background: #0f172a;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    padding: 20px;
+    background: #020617;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 1000px;
+    margin: auto;
+}
+
+.container img {
+    width: 100%;
+}
+
+/* مناطق الضغط */
+.link {
+    position: absolute;
+    display: block;
+}
+</style>
+
 </head>
+
 <body>
 
-<header>
-    🌍 Travel Highlights 2026
-</header>
+<h1>🌍 Travel Highlights - Mohammed</h1>
 
 <div class="container">
 
-    <div class="section">
-        <h2>1. Peak Cultural & City Tours</h2>
+<img src="your-image.png">
 
-        <div class="card">
-            <div class="title">Kyoto & Tokyo, Japan</div>
-            Cherry blossom season is at its peak, with northern cities blooming later in April.
-        </div>
+<!-- اليابان -->
+<a href="japan.html" class="link"
+style="top:140px; left:50px; width:200px; height:200px;"></a>
 
-        <div class="card">
-            <div class="title">Amsterdam, Netherlands</div>
-            Tulip season is at its best, especially in Keukenhof Gardens and countryside cycling tours.
-        </div>
+<!-- هولندا -->
+<a href="amsterdam.html" class="link"
+style="top:140px; left:270px; width:200px; height:200px;"></a>
 
-        <div class="card">
-            <div class="title">Madrid, Spain</div>
-            A rising cultural hub with museum upgrades and access to historic nearby cities.
-        </div>
+<!-- اسبانيا -->
+<a href="madrid.html" class="link"
+style="top:140px; left:490px; width:200px; height:200px;"></a>
 
-        <div class="card">
-            <div class="title">Samarkand & Bukhara, Uzbekistan</div>
-            Silk Road cities with stunning architecture and new high-speed rail access.
-        </div>
-    </div>
+<!-- اوزبكستان -->
+<a href="uzbekistan.html" class="link"
+style="top:140px; left:710px; width:200px; height:200px;"></a>
 
-    <div class="section">
-        <h2>2. Scenic Mountain & Nature Expeditions</h2>
+<!-- كندا -->
+<a href="canada.html" class="link"
+style="top:420px; left:50px; width:200px; height:200px;"></a>
 
-        <div class="card">
-            <div class="title">Canadian Rockies</div>
-            Banff and Icefields Parkway offer breathtaking alpine views.
-        </div>
+<!-- باتاغونيا -->
+<a href="patagonia.html" class="link"
+style="top:420px; left:270px; width:200px; height:200px;"></a>
 
-        <div class="card">
-            <div class="title">Patagonia</div>
-            Ideal trekking season with fewer crowds and autumn colors.
-        </div>
+<!-- نيبال -->
+<a href="nepal.html" class="link"
+style="top:420px; left:490px; width:200px; height:200px;"></a>
 
-        <div class="card">
-            <div class="title">Nepal</div>
-            Perfect for Himalayan trekking before monsoon season begins.
-        </div>
+<!-- المغرب -->
+<a href="morocco.html" class="link"
+style="top:420px; left:710px; width:200px; height:200px;"></a>
 
-        <div class="card">
-            <div class="title">Atlas Mountains, Morocco</div>
-            Great for hiking and desert camp experiences.
-        </div>
-    </div>
+<!-- مصر -->
+<a href="egypt.html" class="link"
+style="top:700px; left:200px; width:200px; height:200px;"></a>
 
-    <div class="section">
-        <h2>3. Adventure & Seasonal Specials</h2>
+<!-- بالي -->
+<a href="bali.html" class="link"
+style="top:700px; left:420px; width:200px; height:200px;"></a>
 
-        <div class="card">
-            <div class="title">Egypt</div>
-            Spring festivals and perfect weather for Nile cruises and pyramids.
-        </div>
-
-        <div class="card">
-            <div class="title">Bali, Indonesia</div>
-            Start of dry season, ideal for nature and snorkeling trips.
-        </div>
-
-        <div class="card">
-            <div class="title">Jordan</div>
-            Best time to explore Petra and Wadi Rum with comfortable weather.
-        </div>
-    </div>
+<!-- الاردن -->
+<a href="jordan.html" class="link"
+style="top:700px; left:640px; width:200px; height:200px;"></a>
 
 </div>
 
