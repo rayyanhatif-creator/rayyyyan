@@ -2,37 +2,52 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Travel - Mohammed</title>
+<title>Mohammed Travel</title>
 
 <style>
 body {
     margin: 0;
-    background: #0f172a;
     font-family: Arial;
+    background: #0f172a;
     color: white;
-    text-align: center;
 }
 
 h1 {
+    text-align: center;
     padding: 20px;
     background: #020617;
-    margin: 0;
 }
 
-.container {
-    position: relative;
-    width: 1000px;
-    margin: auto;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
 }
 
-.container img {
+.card {
+    background: #1e293b;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    text-decoration: none;
+    color: white;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #38bdf8;
+}
+
+.card img {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-/* مناطق الضغط */
-.link {
-    position: absolute;
-    display: block;
+.card h2 {
+    padding: 10px;
+    text-align: center;
 }
 </style>
 
@@ -42,53 +57,37 @@ h1 {
 
 <h1>🌍 Travel Highlights - Mohammed</h1>
 
-<div class="container">
+<div class="grid">
 
-<img src="your-image.png">
+<a href="japan.html" class="card">
+<img src="https://source.unsplash.com/400x300/?japan">
+<h2>Japan</h2>
+</a>
 
-<!-- اليابان -->
-<a href="japan.html" class="link"
-style="top:140px; left:50px; width:200px; height:200px;"></a>
+<a href="amsterdam.html" class="card">
+<img src="https://source.unsplash.com/400x300/?amsterdam">
+<h2>Amsterdam</h2>
+</a>
 
-<!-- هولندا -->
-<a href="amsterdam.html" class="link"
-style="top:140px; left:270px; width:200px; height:200px;"></a>
+<a href="madrid.html" class="card">
+<img src="https://source.unsplash.com/400x300/?madrid">
+<h2>Madrid</h2>
+</a>
 
-<!-- اسبانيا -->
-<a href="madrid.html" class="link"
-style="top:140px; left:490px; width:200px; height:200px;"></a>
+<a href="canada.html" class="card">
+<img src="https://source.unsplash.com/400x300/?canada,mountains">
+<h2>Canada</h2>
+</a>
 
-<!-- اوزبكستان -->
-<a href="uzbekistan.html" class="link"
-style="top:140px; left:710px; width:200px; height:200px;"></a>
+<a href="bali.html" class="card">
+<img src="https://source.unsplash.com/400x300/?bali">
+<h2>Bali</h2>
+</a>
 
-<!-- كندا -->
-<a href="canada.html" class="link"
-style="top:420px; left:50px; width:200px; height:200px;"></a>
-
-<!-- باتاغونيا -->
-<a href="patagonia.html" class="link"
-style="top:420px; left:270px; width:200px; height:200px;"></a>
-
-<!-- نيبال -->
-<a href="nepal.html" class="link"
-style="top:420px; left:490px; width:200px; height:200px;"></a>
-
-<!-- المغرب -->
-<a href="morocco.html" class="link"
-style="top:420px; left:710px; width:200px; height:200px;"></a>
-
-<!-- مصر -->
-<a href="egypt.html" class="link"
-style="top:700px; left:200px; width:200px; height:200px;"></a>
-
-<!-- بالي -->
-<a href="bali.html" class="link"
-style="top:700px; left:420px; width:200px; height:200px;"></a>
-
-<!-- الاردن -->
-<a href="jordan.html" class="link"
-style="top:700px; left:640px; width:200px; height:200px;"></a>
+<a href="egypt.html" class="card">
+<img src="https://source.unsplash.com/400x300/?egypt,pyramids">
+<h2>Egypt</h2>
+</a>
 
 </div>
 
