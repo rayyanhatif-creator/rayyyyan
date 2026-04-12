@@ -3,175 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حديقة طيور الريان | عالم الألوان</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <title>RAYYAN PARK | تجربة استثنائية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@900&family=Noto+Sans+Arabic:wght@900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #050505;
-            --accent-macaw: #e63946; /* أحمر مكاو */
-            --accent-amazon: #a7c957; /* أخضر أمازون */
-            --text-light: #ffffff;
-            --text-gray: #a0a0a0;
-            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            --primary: #FFD700; /* ذهبي ملكي */
+            --bg: #000000;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Noto Sans Arabic', sans-serif;
             overflow-x: hidden;
         }
 
-        /* القائمة العلوية */
-        nav {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 25px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-        }
-
-        .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            text-transform: uppercase;
-        }
-
-        .book-btn-nav {
-            padding: 12px 30px;
-            background-color: transparent;
-            color: var(--text-light);
-            border: 2px solid var(--text-light);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: var(--transition);
-        }
-
-        .book-btn-nav:hover {
-            background-color: var(--text-light);
-            color: var(--bg-dark);
-        }
-
-        /* قسم الهيرو المقسم (Split Screen) */
-        .hero-split {
-            display: flex;
+        /* الصفحة الأولى - الواجهة السينمائية */
+        .hero-section {
             height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-        }
-
-        .split {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
             position: relative;
-            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1544967082-d9d25d867d66?q=80&w=2000&auto=format&fit=crop'); /* صورة مكاو احترافية جداً */
             background-size: cover;
             background-position: center;
-            cursor: pointer;
+            background-attachment: fixed; /* حركة البارالاكس الجامدة */
         }
 
-        /* خلفيات الصور الواقعية */
-        .split.left {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
-                              url('https://images.unsplash.com/photo-1599818818825-7096c46fb7eb?q=80&w=2560&auto=format&fit=crop'); /* صورة مكاو واقعية */
+        .hero-title {
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.8;
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            z-index: 2;
         }
 
-        .split.right {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
-                              url('https://images.unsplash.com/photo-1552728089-57bdde30eba3?auto=format&fit=crop&w=1920&q=80'); /* صورة أمازون واقعية */
-        }
-
-        /* تأثير التكبير عند التحويم */
-        .split:hover { flex: 1.5; }
-        .split::after {
-            content: '';
+        .hero-subtitle {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.2);
-            transition: var(--transition);
-        }
-        .split:hover::after { background-color: rgba(0,0,0,0); }
-
-        /* محتوى النص فوق الصور */
-        .split-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 0 10%;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 0.5s;
+            bottom: 50px;
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: 5px;
         }
 
-        .split.left h2 { color: var(--accent-macaw); font-size: 4rem; font-weight: 900; text-transform: uppercase; }
-        .split.right h2 { color: var(--accent-amazon); font-size: 4rem; font-weight: 900; text-transform: uppercase; }
-
-        .split-content p {
-            font-size: 1.3rem;
-            margin: 15px 0 40px 0;
-            color: var(--text-gray);
-            line-height: 1.6;
+        /* الصفحة الثانية - الشرح (الجامد) */
+        .content-section {
+            min-height: 100vh;
+            padding: 100px 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: #080808;
         }
 
-        /* الزر الرئيسي الجريء */
-        .hero-btn {
-            padding: 20px 50px;
-            background-color: var(--text-light);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.2rem;
+        .content-text h2 {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .content-text p {
+            font-size: 1.8rem;
+            color: #888;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .image-box {
+            height: 80vh;
+            background: url('https://images.unsplash.com/photo-1552728089-57bdde30eba3?q=80&w=1500&auto=format&fit=crop'); /* صورة أمازون واقعية */
+            background-size: cover;
+            background-position: center;
             border-radius: 5px;
-            transition: var(--transition);
-            display: inline-block;
+            transition: 0.5s;
         }
 
-        .hero-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        .image-box:hover {
+            transform: scale(0.98);
+            filter: brightness(1.2);
         }
 
-        /* أنيميشن الظهور */
-        @keyframes fadeInUp {
+        /* الصفحة الثالثة - الحجز (الأنيق) */
+        .booking-section {
+            height: 100vh;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book-card {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .book-link {
+            font-size: clamp(3rem, 10vw, 8rem);
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 10px solid var(--primary);
+            transition: 0.3s;
+        }
+
+        .book-link:hover {
+            color: var(--primary);
+            border-bottom-color: #fff;
+        }
+
+        /* أنيميشن بسيط */
+        .fade-in {
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @media (max-width: 768px) {
+            .content-section { grid-template-columns: 1fr; text-align: center; }
+            .hero-title { font-size: 5rem; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">RAYYAN</div>
-        <a href="booking.html" class="book-btn-nav">احجز تجربتك</a>
-    </nav>
+    <section class="hero-section">
+        <h1 class="hero-title fade-in">RAYYAN<br>PARK</h1>
+        <div class="hero-subtitle">انغمس في عالم الطيور</div>
+    </section>
 
-    <div class="hero-split">
-        <div class="split left">
-            <div class="split-content">
-                <h2>MACAW</h2>
-                <p>استكشف فخامة ألوان المكاو الأحمر والأزرق في بيئة طبيعية ساحرة.</p>
-                <a href="booking.html" class="hero-btn">احجز الآن</a>
-            </div>
+    <section class="content-section">
+        <div class="content-text">
+            <h2>نحنُ<br>الأصل.</h2>
+            <p>ليست مجرد حديقة، بل موطن لأجمل ببغاوات المكاو والأمازون في قلب الرياض. صممنا لك تجربة تليق بذائقتك.</p>
         </div>
-        <div class="split right">
-            <div class="split-content">
-                <h2>AMAZON</h2>
-                <p>تعرف على ذكاء وجمال ببغاوات الأمازون الخضراء النادرة عن قرب.</p>
-                <a href="booking.html" class="hero-btn">احجز الآن</a>
-            </div>
+        <div class="image-box"></div>
+    </section>
+
+    <section class="booking-section">
+        <div class="book-card">
+            <p style="font-size: 1.2rem; color: #555; margin-bottom: 20px;">جاهز للتجربة؟</p>
+            <a href="https://wa.me/9665XXXXXXXXX" class="book-link">احجز الآن</a>
         </div>
-    </div>
+    </section>
 
 </body>
 </html>
