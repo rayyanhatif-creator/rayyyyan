@@ -3,152 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حديقة طيور الريان | حجز سريع</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <title>لوحة صدارة المسابقة | Leaderboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --accent-color: #3b82f6; /* لون أزرق عصري */
+            --text-color: #ffffff;
+            --secondary-text: #a1a1aa;
+            --gold: #fbbf24;
+        }
+
         body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #0c0c0c; /* خلفية داكنة جداً */
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
             display: flex;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            color: #fff;
-            /* إضافة خلفية بصورة ببغاء واقعية خاففتة جداً لتعطي عمق */
-            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                              url('https://images.unsplash.com/photo-1552728089-57bdde30eba3?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+            padding-top: 50px;
         }
 
-        .main-card {
-            background: #111; /* لون البطاقة مثل هاتف */
-            width: 90%;
-            max-width: 420px;
-            padding: 40px 30px;
-            border-radius: 24px;
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .header {
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            border: 1px solid #1f1f1f;
+            margin-bottom: 30px;
         }
 
-        .logo-area {
-            width: 90px;
-            height: 90px;
-            background: #1a1a1a;
-            border-radius: 20px;
-            margin: 0 auto 20px;
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to bottom, #fff, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .leaderboard-list {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid #222;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #222;
+            transition: background 0.3s;
+        }
+
+        .item:hover {
+            background-color: #161616;
+        }
+
+        .rank {
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 40px;
+            color: var(--secondary-text);
+        }
+
+        .rank-1 { color: var(--gold); } /* المركز الأول */
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            background: #222;
+            border-radius: 50%;
+            margin-left: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: #ffd700; /* ذهبي */
-            border: 1px solid #333;
+            font-size: 1.2rem;
         }
 
-        h1 {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
+        .info {
+            flex-grow: 1;
         }
 
-        p.subtitle {
-            font-size: 1rem;
-            color: #888;
-            margin-bottom: 35px;
-            line-height: 1.5;
+        .name {
+            display: block;
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
-        .action-group {
-            display: grid;
+        .score-box {
+            text-align: left;
+        }
+
+        .score-value {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .score-label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--secondary-text);
+            text-transform: uppercase;
+        }
+
+        /* تصميم للمراكز الثلاثة الأولى */
+        .top-three {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-bottom: 30px;
             gap: 15px;
         }
 
-        /* زر الحجز الرئيسي - جامد ومستوحى من هاتف */
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            padding: 18px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .top-item {
+            text-align: center;
+            flex: 1;
         }
 
-        .btn-booking {
-            background: #fff;
-            color: #000;
+        .top-item .avatar {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 10px;
+            border: 3px solid transparent;
         }
 
-        .btn-booking:hover {
-            transform: scale(1.02);
-            background: #ffd700;
-        }
-
-        .btn-info {
-            background: #1a1a1a;
-            color: #fff;
-            border: 1px solid #333;
-        }
-
-        .btn-info:hover {
-            background: #252525;
-            border-color: #444;
-        }
-
-        .footer-text {
-            margin-top: 35px;
-            font-size: 0.8rem;
-            color: #444;
-            letter-spacing: 2px;
-        }
-
-        /* تأثير الحركة عند الدخول */
-        .main-card {
-            animation: slideUp 0.8s ease-out;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .first .avatar { border-color: var(--gold); width: 90px; height: 90px; font-size: 2rem; }
+        .first .name { font-size: 1.3rem; color: var(--gold); }
     </style>
 </head>
 <body>
 
-    <div class="main-card">
-        <div class="logo-area">
-            <i class="fas fa-feather-alt"></i>
-        </div>
-        
-        <h1>حديقة طيور الريان</h1>
-        <p class="subtitle">استمتع بتجربة تفاعلية فريدة مع أجمل أنواع الببغاوات في قلب الرياض.</p>
-        
-        <div class="action-group">
-            <a href="https://wa.me/9665XXXXXXXX" class="btn btn-booking">
-                <i class="fab fa-whatsapp"></i>
-                احجز موعدك الآن
-            </a>
-            
-            <a href="#" class="btn btn-info">
-                <i class="fas fa-map-marker-alt"></i>
-                موقع الحديقة
-            </a>
+<div class="container">
+    <div class="header">
+        <h1>الترتيب العام</h1>
+        <p style="color: var(--secondary-text);">نتائج المسابقة الحالية</p>
+    </div>
+
+    <div id="podium" class="top-three">
         </div>
 
-        <div class="footer-text">
-            RAYYAN PARK • 2026
+    <div class="leaderboard-list" id="list">
         </div>
-    </div>
+</div>
+
+<script>
+    // بيانات المتسابقين - هنا تضيف الأسماء والنقاط
+    const players = [
+        { name: "محمد العتيبي", score: 2450 },
+        { name: "خالد بن أحمد", score: 2100 },
+        { name: "سلطان", score: 1950 },
+        { name: "عبدالعزيز", score: 1800 },
+        { name: "ريان", score: 2800 }, // سيظهر الأول تلقائياً
+        { name: "يوسف", score: 1500 }
+    ];
+
+    function updateLeaderboard() {
+        const listContainer = document.getElementById('list');
+        const podiumContainer = document.getElementById('podium');
+
+        // ترتيب اللاعبين من الأعلى للأقل
+        const sorted = [...players].sort((a, b) => b.score - a.score);
+
+        // تعبئة المنصة (أول 3)
+        const top3 = sorted.slice(0, 3);
+        // ترتيب العرض (الثاني، الأول، الثالث)
+        podiumContainer.innerHTML = `
+            <div class="top-item second">
+                <div class="avatar">🥈</div>
+                <span class="name">${top3[1]?.name || '-'}</span>
+                <span class="score-value">${top3[1]?.score || 0}</span>
+            </div>
+            <div class="top-item first">
+                <div class="avatar">👑</div>
+                <span class="name">${top3[0]?.name || '-'}</span>
+                <span class="score-value">${top3[0]?.score || 0}</span>
+            </div>
+            <div class="top-item third">
+                <div class="avatar">🥉</div>
+                <span class="name">${top3[2]?.name || '-'}</span>
+                <span class="score-value">${top3[2]?.score || 0}</span>
+            </div>
+        `;
+
+        // تعبئة باقي القائمة
+        listContainer.innerHTML = sorted.map((p, i) => `
+            <div class="item">
+                <div class="rank ${i === 0 ? 'rank-1' : ''}">${i + 1}</div>
+                <div class="avatar">${p.name.charAt(0)}</div>
+                <div class="info">
+                    <span class="name">${p.name}</span>
+                </div>
+                <div class="score-box">
+                    <span class="score-value">${p.score}</span>
+                    <span class="score-label">نقطة</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    window.onload = updateLeaderboard;
+</script>
 
 </body>
 </html>
