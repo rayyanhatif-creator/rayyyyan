@@ -3,189 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كافيه العز</title>
+    <title>كافيه العز | القمة</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #FFD700; --black: #000000; --dark-grey: #121212; }
+        :root { --gold: #FFD700; --black: #000000; --dark: #0a0a0a; --grey: #1a1a1a; }
+        
+        /* تأثيرات الظهور */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
         body { 
-            font-family: 'Tajawal', sans-serif; 
-            background-color: var(--black); 
-            color: var(--gold); 
-            display: flex; flex-direction: column; align-items: center; 
-            margin: 0; padding: 20px; min-height: 100vh;
+            font-family: 'Tajawal', sans-serif; background-color: var(--black); color: var(--gold); 
+            display: flex; flex-direction: column; align-items: center; margin: 0; padding: 20px; 
+            min-height: 100vh; scroll-behavior: smooth;
         }
 
-        h1 { font-size: clamp(35px, 8vw, 55px); margin: 20px 0; text-shadow: 0 0 15px rgba(255,215,0,0.5); text-align: center; }
+        /* الساعة الرقمية */
+        .clock-box { position: fixed; top: 10px; right: 10px; background: rgba(255, 215, 0, 0.1); border: 1px solid var(--gold); padding: 5px 15px; border-radius: 15px; font-weight: bold; font-size: 14px; z-index: 1000; }
 
-        .hero-img { 
-            width: 100%; max-width: 600px; border-radius: 25px; 
-            border: 2px solid var(--gold); object-fit: cover; 
-            height: 300px; margin-bottom: 25px;
-        }
+        h1 { font-size: clamp(40px, 10vw, 60px); margin: 30px 0; text-shadow: 0 0 20px rgba(255,215,0,0.4); animation: fadeIn 0.8s ease; }
 
-        .team-box { 
-            width: 100%; max-width: 600px; background: var(--dark-grey); 
-            padding: 20px; border-radius: 20px; text-align: center; 
-            border: 1px solid #222; margin-bottom: 25px; box-sizing: border-box;
-        }
-
-        .on-duty { 
-            margin-top: 12px; font-size: 14px; color: #fff; 
-            background: rgba(255, 215, 0, 0.15); padding: 6px 15px; 
-            border-radius: 25px; border: 1px solid var(--gold); display: inline-block;
-        }
-
-        .order-container { 
-            background: var(--gold); color: #000; width: 100%; 
-            max-width: 600px; padding: 30px; border-radius: 30px; 
-            margin-top: 30px; text-align: center; box-sizing: border-box;
-        }
-
-        input { 
-            width: 100%; padding: 15px; border-radius: 12px; border: 2px solid #000; 
-            margin-top: 15px; font-family: 'Tajawal'; font-weight: bold; 
-            text-align: center; font-size: 16px; box-sizing: border-box;
-        }
-
-        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
+        .hero-img { width: 100%; max-width: 600px; border-radius: 30px; border: 2px solid var(--gold); height: 300px; object-fit: cover; margin-bottom: 30px; animation: fadeIn 1s ease; }
         
-        button { 
-            flex: 2; background: #000; color: var(--gold); padding: 15px; 
-            border-radius: 12px; border: none; font-weight: bold; 
-            cursor: pointer; font-size: 18px; transition: 0.3s;
-        }
+        .team-box { width: 100%; max-width: 600px; background: var(--grey); padding: 25px; border-radius: 25px; text-align: center; border: 1px solid #333; margin-bottom: 30px; animation: fadeIn 1.2s ease; }
+        .on-duty { margin-top: 15px; font-size: 14px; color: #fff; background: rgba(255, 215, 0, 0.2); padding: 8px 20px; border-radius: 30px; border: 1px solid var(--gold); display: inline-block; }
 
-        .btn-clear { 
-            flex: 1; background: #444; color: #fff; font-size: 14px; 
-        }
+        /* المنيو بتصميم احترافي */
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; max-width: 600px; margin-bottom: 40px; }
+        .menu-card { background: var(--dark); border-right: 4px solid var(--gold); padding: 15px; border-radius: 15px; transition: 0.3s; animation: fadeIn 1.4s ease; }
+        .menu-card:hover { transform: scale(1.03); background: #111; }
+        .category-name { color: #fff; font-size: 12px; opacity: 0.6; margin-bottom: 5px; }
+        .item-name { font-weight: bold; font-size: 17px; }
 
-        #ai-reply-box { 
-            display: none; margin-top: 20px; padding: 15px; 
-            background: #fff; color: #000; border-radius: 15px; 
-            font-weight: bold; cursor: pointer; border-left: 5px solid #000;
-        }
-
-        .story-box { 
-            width: 100%; max-width: 600px; margin: 40px 0 20px 0; padding: 30px; 
-            background: var(--dark-grey); border-radius: 20px; border: 1px solid #333; 
-            line-height: 1.8; text-align: justify; box-sizing: border-box;
-        }
-        .story-box h2 { text-align: center; color: var(--gold); margin-top: 0; }
-
-        .survey-container { 
-            width: 100%; max-width: 600px; background: var(--dark-grey); 
-            padding: 25px; border-radius: 20px; border: 1px solid var(--gold); 
-            text-align: center; box-sizing: border-box; margin-bottom: 30px;
-        }
-        .stars { display: flex; justify-content: center; gap: 10px; margin: 15px 0; font-size: 30px; cursor: pointer; }
-        .star { color: #444; transition: 0.3s; }
-        .star.active { color: var(--gold); text-shadow: 0 0 10px rgba(255,215,0,0.5); }
-        #ratingMsg { font-weight: bold; min-height: 20px; color: var(--gold); }
-
-        .footer { margin: 30px 0 50px 0; font-size: 12px; opacity: 0.4; text-align: center; width: 100%; }
+        /* صندوق الطلب والذكاء */
+        .order-container { background: var(--gold); color: #000; width: 100%; max-width: 600px; padding: 35px; border-radius: 35px; text-align: center; box-shadow: 0 10px 30px rgba(255,215,0,0.2); transition: 0.4s; }
+        input { width: 100%; padding: 18px; border-radius: 15px; border: 2px solid #000; margin-top: 20px; font-family: 'Tajawal'; font-weight: bold; text-align: center; font-size: 18px; }
+        .btn-send { background: #000; color: var(--gold); padding: 15px 40px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; margin-top: 15px; font-size: 18px; width: 100%; }
         
-        /* تأثير حركي بسيط للرسالة */
-        @keyframes slideInMsg {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        #ai-reply { display: none; margin-top: 25px; padding: 20px; background: #fff; color: #000; border-radius: 20px; border-right: 8px solid #000; font-weight: bold; animation: fadeIn 0.4s ease; }
+
+        /* قصة العز والتقييم */
+        .content-box { width: 100%; max-width: 600px; margin: 40px 0; background: var(--grey); padding: 30px; border-radius: 25px; border: 1px solid #333; line-height: 1.8; text-align: center; }
+        .stars { font-size: 35px; cursor: pointer; margin: 15px 0; }
+        .star { color: #444; transition: 0.2s; }
+        .star.active { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
+
+        /* زر الواتساب */
+        .wa-btn { background: #25D366; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 20px; display: inline-flex; align-items: center; gap: 10px; }
     </style>
 </head>
 <body>
+
+    <div class="clock-box" id="clock">00:00:00</div>
 
     <h1>كـافـيـه الـعـز</h1>
 
     <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1000&auto=format&fit=crop" class="hero-img">
 
     <div class="team-box">
-        <div style="font-weight: bold; font-size: 20px;">القائد: أبو وليد 👑 | الرئيس: أسامة ✨</div>
-        <div style="font-size: 16px; color: #aaa; margin: 8px 0;">ريان • حيان • باسل</div>
-        <div class="on-duty">🟢 متواجد الآن لخدمتكم: أسامة، ريان، حيان، باسل، <b style="color:var(--gold); font-size:18px">ذكاء العز 🤖</b></div>
+        <div style="font-weight: bold; font-size: 22px;">القائد: أبو وليد 👑 | الرئيس: أسامة ✨</div>
+        <div style="font-size: 16px; color: #aaa; margin: 10px 0;">ريان • حيان • باسل • ذكاء العز</div>
+        <div class="on-duty">🟢 متواجد الآن لخدمتكم: أسامة، ريان، حيان، باسل، <b>ذكاء العز 🤖</b></div>
+    </div>
+
+    <div class="menu-grid">
+        <div class="menu-card"><div class="category-name">موالح</div><div class="item-name">بطاطس • سمبوسة • بليلة</div></div>
+        <div class="menu-card"><div class="category-name">حلا</div><div class="item-name">بسبوسة • كريمة • كيكة</div></div>
+        <div class="menu-card"><div class="category-name">بارد</div><div class="item-name">موهيتو • عصير طازج</div></div>
+        <div class="menu-card"><div class="category-name">حار</div><div class="item-name">نعناع • قهوة العز</div></div>
     </div>
 
     <div class="order-container">
-        <h3 style="margin:0; font-size: 24px;">اطلب عبر ذكاء العز 🤖☕</h3>
+        <h3 style="margin:0">اطلب عبر ذكاء العز 🤖☕</h3>
         <input type="text" id="userInput" placeholder="وش بخاطرك تطلب؟" onkeypress="if(event.key==='Enter') askAI()">
-        
-        <div class="btn-group">
-            <button onclick="askAI()">إرسال الطلب</button>
-            <button class="btn-clear" onclick="clearMessage()">الرجوع ↩️</button>
-        </div>
-
-        <div id="ai-reply-box" onclick="clearMessage()">
-            <span id="ai-text"></span>
-            <div style="font-size: 10px; margin-top: 10px; color: #666;">(اضغط هنا للإغلاق والمسح)</div>
+        <button class="btn-send" onclick="askAI()">إرسال الطلب</button>
+        <div id="ai-reply" onclick="this.style.display='none'">
+            <div id="ai-text"></div>
+            <div style="font-size: 10px; color: #888; margin-top: 10px;">(اضغط للمسح والرجوع)</div>
         </div>
     </div>
 
-    <div class="story-box">
+    <div class="content-box">
         <h2>قصة العز 📜</h2>
-        بدأت الرحلة بتوفيق من <b>حلقات الصفوة</b>. وبفضل تكاتف الفريق وعملهم الجاد، صمم <b>ريان</b> هذا الموقع في وقت قياسي ليكون واجهتنا الرقمية بقيادة <b>أبو وليد</b> ورئاسة <b>أسامة</b>، ليكون منارة للعمل الجماعي المخلص.
+        بدأت الرحلة من <b>حلقات الصفوة</b>. بفضل تكاتف الفريق، صمم <b>ريان</b> هذا الموقع ليكون واجهتنا الرقمية.
     </div>
 
-    <div class="survey-container">
-        <h3 style="margin-top:0;">تقييمك لنا يهمنا ⭐</h3>
-        <p style="color: #ccc; font-size: 14px; margin: 0;">كيف كانت تجربتك مع كافيه وذكاء العز؟</p>
-        <div class="stars" id="starRating">
-            <span class="star" onclick="rate(1)">★</span>
-            <span class="star" onclick="rate(2)">★</span>
-            <span class="star" onclick="rate(3)">★</span>
-            <span class="star" onclick="rate(4)">★</span>
-            <span class="star" onclick="rate(5)">★</span>
+    <div class="content-box" style="border: 1px solid var(--gold);">
+        <h3>تقييمك لنا يهمنا ⭐</h3>
+        <div class="stars">
+            <span class="star" onclick="rate(1)">★</span><span class="star" onclick="rate(2)">★</span><span class="star" onclick="rate(3)">★</span><span class="star" onclick="rate(4)">★</span><span class="star" onclick="rate(5)">★</span>
         </div>
-        <div id="ratingMsg"></div>
+        <div id="rateMsg" style="font-weight:bold"></div>
     </div>
 
-    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop" class="hero-img">
+    <a href="https://wa.me/966XXXXXXXXX" class="wa-btn">💬 تواصل معنا عبر واتساب</a>
+
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop" class="hero-img" style="margin-top:40px">
 
     <div class="footer">كافيه العز © 2026</div>
 
     <script>
+        // الساعة
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
+        }, 1000);
+
+        // الذكاء الاصطناعي
         async function askAI() {
             const input = document.getElementById('userInput');
-            const replyBox = document.getElementById('ai-reply-box');
-            const replyText = document.getElementById('ai-text');
-
-            if (!input.value.trim()) return;
-
-            // الحفظ والمسح الفوري (الحل الجذري للمشكلة القديمة)
-            const currentMessage = input.value;
-            input.value = ""; // مسح فوري للخانة عند الإرسال
-
-            replyBox.style.display = "block";
-            replyText.innerText = "⏳ جاري التجهيز بلمح البصر من ذكاء العز...";
-
+            const box = document.getElementById('ai-reply');
+            const text = document.getElementById('ai-text');
+            if(!input.value.trim()) return;
+            const msg = input.value;
+            input.value = ""; // مسح فوري
+            box.style.display = "block";
+            text.innerText = "⏳ ذكاء العز يجهز طلبك...";
             try {
-                // استخدام الـ Webhook الخاص بك في n8n (الذي ضبطناه)
-                const response = await fetch('https://voxa-3a7ac828dfb6.herokuapp.com/webhook/f679c772-d169-4e46-a1cd-35bd223dc4b6', {
+                const res = await fetch('https://voxa-3a7ac828dfb6.herokuapp.com/webhook/f679c772-d169-4e46-a1cd-35bd223dc4b6', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chatInput: currentMessage })
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({chatInput: msg})
                 });
-                const data = await response.json();
-                replyText.innerText = data.output || data.text || "تم استلام طلبك! أبشر بسعدك.";
-            } catch (e) {
-                // رد سريع إذا تعطل الـ n8n لأي سبب
-                replyText.innerText = "أبشر، طلبك وصل!";
-            }
+                const data = await res.json();
+                text.innerText = data.output || data.text || "تم استلام طلبك!";
+            } catch(e) { text.innerText = "أبشر، طلبك وصل للفريق!"; }
         }
 
-        function clearMessage() {
-            document.getElementById('ai-reply-box').style.display = "none";
-            document.getElementById('userInput').value = "";
-            document.getElementById('ai-text').innerText = "";
-        }
-
+        // التقييم
         function rate(n) {
             const stars = document.querySelectorAll('.star');
-            const msg = document.getElementById('ratingMsg');
-            stars.forEach((s, idx) => s.classList.toggle('active', idx < n));
-            const messages = ["شكراً لصدقك!", "نطمح للأفضل!", "سعيدون برضاك!", "رائع جداً!", "أنت العز كله! 🔥"];
-            msg.innerText = messages[n-1];
-            msg.style.animation = 'none';
-            msg.offsetHeight; // trigger reflow
-            msg.style.animation = 'slideInMsg 0.4s ease';
+            stars.forEach((s, i) => s.classList.toggle('active', i < n));
+            document.getElementById('rateMsg').innerText = "شكراً لتقييمك يا بطل! 🔥";
         }
     </script>
 </body>
