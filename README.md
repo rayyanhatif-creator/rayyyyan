@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طلعة الخميس - ثالث متوسط</title>
+    <title>مجلس الخميس - ثالث متوسط</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; padding: 20px; margin: 0; }
         .container { width: 100%; max-width: 500px; }
         .card { background: white; border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; }
         .card:hover { transform: scale(1.02); }
-        h1 { color: #333; }
+        h1 { color: #333; text-align: center; }
         h2 { color: #2c3e50; margin-top: 0; }
         a { text-decoration: none; color: #3498db; font-weight: bold; }
     </style>
@@ -21,14 +21,8 @@
 
     <div class="card">
         <h2>لوحة التحديات</h2>
-        <p>شاهد ترتيب الشباب في البلوت والمسابقات</p>
-        <a href="#">عرض اللوحة</a>
-    </div>
-
-    <div class="card">
-        <h2>أبجدية الثقافة</h2>
-        <p>معلومة الخميس وألغاز الأسبوع</p>
-        <a href="#">اقرأ المزيد</a>
+        <p>الترتيب التنافسي للأسر</p>
+        <a href="#">عرض ترتيب الأسر</a>
     </div>
 
     <div class="card">
