@@ -3,66 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كافيه العز | النسخة الذهبية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>طلعة الخميس - ثالث متوسط</title>
     <style>
-        :root { 
-            --primary-yellow: #FFD700; /* أصفر ذهبي */
-            --bg-yellow: #FFEC8B;      /* أصفر فاتح للخلفية */
-            --text-dark: #8B7500;      /* بني ذهبي غامق للنصوص */
-            --gold-bright: #FFF68F; 
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .container { width: 100%; max-width: 500px; }
+        .card { background: white; border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; }
+        .card:hover { transform: scale(1.02); }
+        h1 { color: #333; }
+        h2 { color: #2c3e50; margin-top: 0; }
+        a { text-decoration: none; color: #3498db; font-weight: bold; }
+    </style>
+</head>
+<body>
 
-        body { 
-            font-family: 'Tajawal', sans-serif; 
-            background-color: var(--bg-yellow); 
-            color: var(--text-dark); 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            margin: 0; 
-            padding: 20px; 
-            min-height: 100vh; 
-        }
+<div class="container">
+    <h1>مجلس الخميس 🏆</h1>
 
-        h1 { 
-            font-size: 50px; 
-            margin: 20px 0; 
-            color: var(--text-dark);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1); 
-        }
+    <div class="card">
+        <h2>لوحة التحديات</h2>
+        <p>شاهد ترتيب الشباب في البلوت والمسابقات</p>
+        <a href="#">عرض اللوحة</a>
+    </div>
 
-        .hero-img { 
-            width: 100%; 
-            max-width: 600px; 
-            border-radius: 25px; 
-            border: 4px solid var(--primary-yellow); 
-            height: 300px; 
-            object-fit: cover; 
-            margin-bottom: 25px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .team-box { 
-            width: 100%; 
-            max-width: 600px; 
-            background: var(--gold-bright); 
-            padding: 25px; 
-            border-radius: 20px; 
-            text-align: center; 
-            border: 2px solid var(--primary-yellow); 
-            margin-bottom: 25px; 
-            box-sizing: border-box; 
-        }
+    <div class="card">
+        <h2>أبجدية الثقافة</h2>
+        <p>معلومة الخميس وألغاز الأسبوع</p>
+        <a href="#">اقرأ المزيد</a>
+    </div>
 
-        .on-duty { 
-            margin-top: 12px; 
-            font-size: 15px; 
-            color: var(--text-dark); 
-            background: rgba(255, 215, 0, 0.3); 
-            padding: 8px 18px; 
-            border-radius: 25px; 
-            border: 1px solid var(--primary-yellow); 
-            display: inline-block; 
-            font-weight: bold;
-        }
+    <div class="card">
+        <h2>مكتبة التوقعات</h2>
+        <p>شاركنا رأيك وتوقعاتك للطلعة القادمة</p>
+        <a href="#">ابدأ التصويت</a>
+    </div>
+
+    <div class="card">
+        <h2>أرشيف الذكريات</h2>
+        <p>لقطاتنا وذكريات جمعتنا</p>
+        <a href="#">استعرض الصور</a>
+    </div>
+</div>
+
+</body>
+</html>
